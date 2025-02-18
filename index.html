@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Where To Watch Popular Video</title>
+    <script type="text/javascript">
+        document.addEventListener('keydown', function(event) {
+            if (event.ctrlKey && (event.key === 'u' || event.key === 'U')) {
+                event.preventDefault();
+                alert('View source is disabled!');
+            }
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1rem 2rem;
+            text-align: center;
+        }
+        .container {
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+        .movie {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            cursor: pointer;
+            padding: 1rem;
+        }
+        .movie h3 {
+            font-size: 1.2rem;
+            margin: 0.5rem;
+        }
+        .video-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: black;
+            text-align: center;
+            padding: 0;
+        }
+        .video-frame {
+            width: 100vw;
+            height: 85vh;
+            border: none;
+        }
+        .ad-container {
+            width: 100%;
+            height: 10vh;
+            background-color: #000000;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            bottom: 10vh;
+            left: 0;
+        }
+        .back-button {
+            display: block;
+            margin: auto;
+            padding: 10px 20px;
+            background-color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            position: absolute;
+            bottom: 2vh;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        @media screen and (orientation: landscape) {
+            .video-frame {
+                height: 100vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Video Explorer</h1>
+    </header>
+	
+<script type='text/javascript' src='//listenerhooter.com/85/d0/23/85d023a65bb254e33f7126d93c57ddbe.js'></script>
+<script type='text/javascript' src='//listenerhooter.com/9c/e1/e4/9ce1e47c973638b2f1b60619dff93c31.js'></script>
+
+    <div class="container" id="movies-container"></div>
+    
+    <div class="video-container" id="video-container">
+        <iframe id="video-frame" class="video-frame" allow="autoplay" frameborder="0" allowfullscreen></iframe>
+        
+        <div class="ad-container">
+            <!-- Kode iklan Adsterra di bawah video -->
+<style type="text/css">
+  .mobileShow {display: none;}
+
+  /* Smartphone Portrait and Landscape */
+  @media only screen
+    and (min-device-width : 320px)
+    and (max-device-width : 480px){ 
+      .mobileShow {display: inline;}
+  }
+  .mobileHide { display: inline; }
+
+  /* Smartphone Portrait and Landscape */
+  @media only screen
+    and (min-device-width : 320px)
+    and (max-device-width : 480px){
+     .mobileHide { display: none;}
+  }
+</style>
+
+     <div class="mobileShow">
+<center><script type="text/javascript">
+	atOptions = {
+		'key' : 'a257018964215ce0fbbe0e3c6462323e',
+		'format' : 'iframe',
+		'height' : 50,
+		'width' : 320,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//listenerhooter.com/a257018964215ce0fbbe0e3c6462323e/invoke.js"></script></center></div>
+<div class="mobileHide"><center><script type="text/javascript">
+	atOptions = {
+		'key' : '324a58aaeb0445cce8ca88475d28089c',
+		'format' : 'iframe',
+		'height' : 90,
+		'width' : 728,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//listenerhooter.com/324a58aaeb0445cce8ca88475d28089c/invoke.js"></script></center></div>
+        </div>
+        
+        <button class="back-button" onclick="closeVideo()">Back</button>
+    </div>
+
+    <script>
+        const movies = [
+            { title: "Movie 1", driveId: "cenAcoL11" },
+            { title: "Movie 2", driveId: "jhB92t7f1" },
+            { title: "slim girl spends her day in the room 😮‍💨💕 VIRAL! 🚀🔥", driveId: "prQ45vx01" },
+            { title: "Movie 4", driveId: "lmn456def" }
+        ];
+
+        function displayMovies() {
+            const moviesContainer = document.getElementById('movies-container');
+            moviesContainer.innerHTML = '';
+
+            movies.forEach(movie => {
+                const movieElement = document.createElement('div');
+                movieElement.classList.add('movie');
+                movieElement.innerHTML = `
+                    <h3 onclick="openVideo('${movie.driveId}')">${movie.title}</h3>
+                `;
+                moviesContainer.appendChild(movieElement);
+            });
+        }
+
+        function openVideo(driveId) {
+    let videoUrl = `https://cdn.videy.co/${driveId}.mp4`;
+    history.pushState({ video: driveId }, "", `?video=${driveId}`);
+    
+    document.getElementById('movies-container').style.display = 'none';
+    document.getElementById('video-container').style.display = 'block';
+    
+    let videoFrame = document.getElementById('video-frame');
+    videoFrame.src = videoUrl;
+    videoFrame.setAttribute("allow", "autoplay");
+    
+    // Hapus Histats lama jika ada, agar tidak duplikat
+    let oldHistats = document.getElementById('histats-script');
+    if (oldHistats) {
+        oldHistats.remove();
+    }
+
+    // Tambahkan kode Histats hanya saat video diputar
+    let histatsScript = document.createElement('script');
+    histatsScript.id = 'histats-script';
+    histatsScript.type = 'text/javascript';
+    histatsScript.innerHTML = `
+        var _Hasync= _Hasync|| [];
+        _Hasync.push(['Histats.start', '1,4922497,4,0,0,0,00000000']);
+        _Hasync.push(['Histats.fasi', '1']);
+        _Hasync.push(['Histats.track_hits', '']);
+        (function() {
+            var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+            hs.src = ('//s10.histats.com/js15_as.js');
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+        })();
+    `;
+    document.body.appendChild(histatsScript);
+}
+
+        function closeVideo() {
+            let videoFrame = document.getElementById('video-frame');
+            videoFrame.src = "";
+            document.getElementById('movies-container').style.display = 'grid';
+            document.getElementById('video-container').style.display = 'none';
+            history.pushState({}, "", window.location.pathname);
+        }
+
+        window.onload = function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const videoId = urlParams.get("video");
+            if (videoId) {
+                openVideo(videoId);
+            }
+        };
+
+        displayMovies();
+    </script>
+</body>
+</html>
